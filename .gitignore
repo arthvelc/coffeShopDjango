@@ -1,0 +1,44 @@
+# Entorno virtual
+venv/
+env/
+myenv/
+
+# Archivos de configuración específicos del entorno operativo
+*.env
+*.local
+*.log
+
+# Archivos y directorios generados por el sistema operativo
+*.DS_Store
+*.vscode/
+*.idea/
+__pycache__/
+*.pyc
+
+# Configuración de bases de datos locales
+db.sqlite3
+db.sqlite3-journal
+
+# Archivos de migraciones (opcional, si deseas compartirlos, quita esto)
+*/migrations/*
+
+# Archivos de caché de Django
+staticfiles/
+media/
+*.cache
+
+# Archivos de configuración de terceros
+celerybeat-schedule
+node_modules/
+npm-debug.log
+
+# Archivos de testeo de cobertura
+htmlcov/
+coverage.xml
+*.cover
+
+# Configuración de herramientas de linters
+*.pylint
+.mypy_cache/
+flake8_report.txt
+pytest_cache/
