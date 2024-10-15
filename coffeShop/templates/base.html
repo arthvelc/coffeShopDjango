@@ -15,8 +15,12 @@
     </script>
 </head>
 <body> 
-    Hola, {% if user.is_authenticated %}
-        {{ user.username }}
+    {% if user.is_authenticated %}
+        Hola, {{ user.username }}
+        <form action="{% url "logout"%}" method="post">
+            {% csrf_token %}
+            <button type="submit">Logout</button>
+        </form>
 
         {% else %}
         <a href="{% url 'login' %}">Login</a>
