@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'products',
+    'users',
 ]
 
 MIDDLEWARE = [
@@ -126,4 +127,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Configuración para archivos multimedia (imágenes, videos, etc.)
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, "media")  # Carpeta donde se guardarán los archivos multimedia
+MEDIA_ROOT = os.path.join(BASE_DIR, "media") 
+
+LOGIN_REDIRECT_URL = 'products'          # Carpeta donde se guardarán los archivos multimedia
