@@ -15,16 +15,31 @@
     </script>
 </head>
 <body> 
-    {% if user.is_authenticated %}
-        Hola, {{ user.username }}
-        <form action="{% url "logout"%}" method="post">
-            {% csrf_token %}
-            <button type="submit">Logout</button>
-        </form>
 
-        {% else %}
-        <a href="{% url 'login' %}">Login</a>
-    {% endif %}
+    <nav class="bg-gray-800 p-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="text-white text-lg font-semibold">
+                Coffee Shop
+            </div>
+            <div class="flex items-center">
+                {% if user.is_authenticated %}
+                    <div class="text-white mr-4 flex items-center">
+                        <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.121 17.804A9.004 9.004 0 0112 15c2.21 0 4.21.896 5.879 2.804M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                        </svg>
+                        Hola, {{ user.username }}
+                    </div>
+                    <a href="{% url 'my_order' %}" class="text-white mr-4">Mi orden</a>
+                    <form action="{% url 'logout' %}" method="post" class="inline">
+                        {% csrf_token %}
+                        <button type="submit" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">Logout</button>
+                    </form>
+                {% else %}
+                    <a href="{% url 'login' %}" class="text-white">Login</a>
+                {% endif %}
+            </div>
+        </div>
+    </nav>
 
     {% block content %}{% endblock %} 
 </body>
